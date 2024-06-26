@@ -4,7 +4,10 @@ import { AppDataSource } from './data-source';
 import { User } from './entity/User';
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:4200',
+    credentials: true,
+}));
 app.use(express.json());
 
 AppDataSource.initialize()

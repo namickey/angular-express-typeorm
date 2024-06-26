@@ -7,6 +7,8 @@ app.use(function (req, res, next) {
     retrieveGroups: true,
   });
   nodeSSPIObj.authenticate(req, res, function (err) {
+    console.log('authenticate. ' + 'url: ' + req.url);
+    console.log(req.headers);
     res.finished || next();
   });
 });
@@ -27,7 +29,7 @@ app.use(function (req, res, next) {
 });
 // Start server
 var port = process.env.PORT || 3000;
-server.listen(port, function () {
+server.listen(port, 'localhost', function () {
   console.log(
     'Express server listening on port %d in %s mode',
     port,

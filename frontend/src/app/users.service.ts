@@ -11,9 +11,13 @@ export class UsersService {
   #http = inject(HttpClient);
 
   getAllUsers(): Observable<IUser[]> {
-    return this.#http.get<{ status:string,data:IUser[] }>(`${this.baseUrl}/users`)
+    return this.#http.get<{ status:string,data:IUser[] }>(`${this.baseUrl}/users`, { withCredentials: true })
     .pipe(
       map(response => response.data)
     )
+  }
+
+  createNewUser(newUser: { name:string, age:number }) {
+    return this.#http.post(`${this.baseUrl}/users`, newUser, { withCredentials: true })
   }
 }
