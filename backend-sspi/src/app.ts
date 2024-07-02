@@ -9,7 +9,7 @@ const app = express();
 var server = http.createServer(app);
 
 // frontend資材をbackendからbackendと同じホスト名及びポート番号で提供するための設定
-app.use(express.static('../frontend/dist/frontend/browser/'));
+//app.use(express.static('../frontend/dist/frontend/browser/'));
 
 // cors設定の順序は認証処理の前に定義する。
 // またPreflight Requestの処理はここで行われる。

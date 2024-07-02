@@ -4,6 +4,7 @@ import { AppDataSource } from './data-source';
 import { User } from './entity/User';
 
 const app = express();
+//app.use(express.static('../frontend/dist/frontend/browser/'));
 app.use(cors({
     origin: 'http://localhost:4200',
     credentials: true,
